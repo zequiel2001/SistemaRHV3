@@ -10,6 +10,7 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import dao.EntrevistadorDAO;
 
 /**
  *
@@ -267,44 +268,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(usuario.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Username field is required", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        if(senha.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Password field is required", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+
+        EntrevistadorDAO dao = new EntrevistadorDAO();
         
-        
-            
-        String user = usuario.getText();
-        String pass = senha.getText();
-        
-        if(user.equals("admin") && pass.equals("admin")){
+        if (dao.checarusuario(usuario.getText(), senha.getText())){
             JOptionPane.showMessageDialog(null, "Welcome to the System " + usuario.getText());
             Menu menu = new Menu();
             menu.setVisible(true);
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Username or password is wrong");
-        }  
-            
-            
-        /*String user = usuario.getText();
-        String pass = senha.getText();
-        if(user == "admin" && pass == "admin"){
-            JOptionPane.showMessageDialog(null, "Usúario Logado no Sistema");
-            Menu menu = new Menu();
-            menu.setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario ou senha estão erradas errada");
-        }*/
-            
-         //EVENTOS QUE VÃO ACONTECER QUANDO O USUÁRIO CLICAR NO BOTÃO "ENTRAR"
         
-        
+        }
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

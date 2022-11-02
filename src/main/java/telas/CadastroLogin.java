@@ -5,6 +5,8 @@
 package telas;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import modelos.Entrevistador;
+import modelos.EntrevistadorBO;
 
 /**
  *
@@ -19,9 +21,9 @@ public class CadastroLogin extends javax.swing.JFrame {
         initComponents();
         //Centralizando o jFrame no meio da tela do computador
         this.setLocationRelativeTo(null);
-        cpf2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
-        cpf2.setBorder(BorderFactory.createCompoundBorder(
-        cpf2.getBorder(), 
+        cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+        cpf.setBorder(BorderFactory.createCompoundBorder(
+        cpf.getBorder(), 
         BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         
         senha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
@@ -29,19 +31,19 @@ public class CadastroLogin extends javax.swing.JFrame {
         senha.getBorder(), 
         BorderFactory.createEmptyBorder(5, 5, 5, 5)));  
         
-        nome2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
-        nome2.setBorder(BorderFactory.createCompoundBorder(
-        nome2.getBorder(), 
+        nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+        nome.setBorder(BorderFactory.createCompoundBorder(
+        nome.getBorder(), 
         BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         
-        usuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
-        usuario.setBorder(BorderFactory.createCompoundBorder(
-        usuario.getBorder(), 
+        user.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+        user.setBorder(BorderFactory.createCompoundBorder(
+        user.getBorder(), 
         BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         
-        cpf2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
-        cpf2.setBorder(BorderFactory.createCompoundBorder(
-        cpf2.getBorder(), 
+        cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+        cpf.setBorder(BorderFactory.createCompoundBorder(
+        cpf.getBorder(), 
         BorderFactory.createEmptyBorder(5, 5, 5, 5))); 
     }
     
@@ -57,14 +59,14 @@ public class CadastroLogin extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        cpf2 = new javax.swing.JTextField();
+        cpf = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         senha = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
-        nome2 = new javax.swing.JTextField();
+        nome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        usuario = new javax.swing.JTextField();
+        user = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -92,12 +94,12 @@ public class CadastroLogin extends javax.swing.JFrame {
         jLabel2.setText("User: ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 100, 20));
 
-        cpf2.addActionListener(new java.awt.event.ActionListener() {
+        cpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpf2ActionPerformed(evt);
+                cpfActionPerformed(evt);
             }
         });
-        getContentPane().add(cpf2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, 30));
+        getContentPane().add(cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 220, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -108,12 +110,12 @@ public class CadastroLogin extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lodotech1.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 220, 120));
 
-        nome2.addActionListener(new java.awt.event.ActionListener() {
+        nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nome2ActionPerformed(evt);
+                nomeActionPerformed(evt);
             }
         });
-        getContentPane().add(nome2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 220, 30));
+        getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 220, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -125,12 +127,12 @@ public class CadastroLogin extends javax.swing.JFrame {
         jLabel5.setText("Nome: ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 100, 20));
 
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                userActionPerformed(evt);
             }
         });
-        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 220, 30));
+        getContentPane().add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 220, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 460));
@@ -177,25 +179,49 @@ public class CadastroLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cpf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpf2ActionPerformed
+    private void cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cpf2ActionPerformed
+    }//GEN-LAST:event_cpfActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(cpf2.getText().equals("")){
+        
+        String nome1 = this.nome.getText();
+        String cpf1 = this.cpf.getText();
+        String usuario1 = this.user.getText();
+        String senha1 = this.senha.getText();
+        
+        Entrevistador entrevistador = new Entrevistador();
+        
+        entrevistador.setNome(nome1);
+        entrevistador.setCpf(cpf1);
+        entrevistador.setUsuario(usuario1);
+        entrevistador.setSenha(senha1);
+        
+        EntrevistadorBO bo = new EntrevistadorBO();
+        
+                try {
+            bo.cadastrar(entrevistador);
+            JOptionPane.showMessageDialog(null, "Entrevistador cadastrado com sucesso ");
+            Login login = new Login();
+            login.setVisible(true);
+            this.dispose();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Houve um erro na hora de cadastrar o entrevistador");
+        }
+        
+        
+        /*if(cpf.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Username field is required", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         if(senha.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Password field is required", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
-        }
-        JOptionPane.showMessageDialog(null, "User Logged into the System");
-            Menu menu = new Menu();
-            menu.setVisible(true);
-            this.dispose();
-            
-         //EVENTOS QUE VÃO ACONTECER QUANDO O USUÁRIO CLICAR NO BOTÃO "ENTRAR"
+        }*/
+        
+        
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -211,9 +237,9 @@ public class CadastroLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu1ActionPerformed
 
-    private void nome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome2ActionPerformed
+    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nome2ActionPerformed
+    }//GEN-LAST:event_nomeActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -229,9 +255,9 @@ public class CadastroLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioActionPerformed
+    }//GEN-LAST:event_userActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,7 +296,7 @@ public class CadastroLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cpf2;
+    private javax.swing.JTextField cpf;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -282,8 +308,8 @@ public class CadastroLogin extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField nome2;
+    private javax.swing.JTextField nome;
     private javax.swing.JPasswordField senha;
-    private javax.swing.JTextField usuario;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Cadidato;
 import modelos.CandidatoBO;
+import dao.EntrevistadorDAO;
+import modelos.Entrevistador;
 
 /**
  *
@@ -67,7 +69,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
          
          for (Cadidato candidato: candidatobo.consulta()){
              modeltable.addRow(new Object[]{
-             candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(), candidato.getEndereco(), candidato.getCep(), candidato.getNumero(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
+             candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getNumero(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
              });
          }
              
@@ -103,20 +105,20 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        cep = new javax.swing.JTextField();
+        genero = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         numero = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         uf = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         experiencia = new javax.swing.JTextField();
         curso = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        cep = new javax.swing.JTextField();
+        formacao = new javax.swing.JTextField();
 
         setClosable(true);
         setMaximizable(true);
@@ -126,13 +128,13 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         tabelacandidatos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tabelacandidatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Cpf", "Email", "Birth date", "Phone", "Genre", "Address", "CEP", "Número", "UF", "Courses", "Experiences"
+                "Name", "Cpf", "Email", "Birth date", "Phone", "Genre", "Formacao", "Address", "Número", "CEP", "UF", "Courses", "Experiences"
             }
         ));
         tabelacandidatos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -162,12 +164,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             tabelacandidatos.getColumnModel().getColumn(5).setMinWidth(230);
             tabelacandidatos.getColumnModel().getColumn(5).setPreferredWidth(230);
             tabelacandidatos.getColumnModel().getColumn(5).setMaxWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(6).setMinWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(6).setPreferredWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(6).setMaxWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(7).setMinWidth(300);
-            tabelacandidatos.getColumnModel().getColumn(7).setPreferredWidth(300);
-            tabelacandidatos.getColumnModel().getColumn(7).setMaxWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(7).setMinWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(7).setPreferredWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(7).setMaxWidth(230);
             tabelacandidatos.getColumnModel().getColumn(8).setMinWidth(300);
             tabelacandidatos.getColumnModel().getColumn(8).setPreferredWidth(300);
             tabelacandidatos.getColumnModel().getColumn(8).setMaxWidth(300);
@@ -180,6 +179,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             tabelacandidatos.getColumnModel().getColumn(11).setMinWidth(300);
             tabelacandidatos.getColumnModel().getColumn(11).setPreferredWidth(300);
             tabelacandidatos.getColumnModel().getColumn(11).setMaxWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(12).setMinWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(12).setPreferredWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(12).setMaxWidth(300);
         }
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
@@ -241,10 +243,10 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Zip Code:");
 
-        cep.setBackground(new java.awt.Color(240, 239, 253));
-        cep.addActionListener(new java.awt.event.ActionListener() {
+        genero.setBackground(new java.awt.Color(240, 239, 253));
+        genero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cepActionPerformed(evt);
+                generoActionPerformed(evt);
             }
         });
 
@@ -270,16 +272,8 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo123.png"))); // NOI18N
 
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculine", "Feminine", "Others" }));
-
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("Academic formation:");
-
-        jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Complete high school", "Incomplete high school", "Complete Higher Education", "Incomplete Higher Education" }));
 
         experiencia.setBackground(new java.awt.Color(240, 239, 253));
 
@@ -315,6 +309,20 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             }
         });
 
+        cep.setBackground(new java.awt.Color(240, 239, 253));
+        cep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cepActionPerformed(evt);
+            }
+        });
+
+        formacao.setBackground(new java.awt.Color(240, 239, 253));
+        formacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                formacaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -337,9 +345,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                         .addComponent(nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(jLabel15)
-                        .addGap(11, 11, 11)
+                        .addGap(23, 23, 23)
                         .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel16)
                         .addGap(11, 11, 11)
                         .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,21 +379,20 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel5)
                                 .addGap(10, 10, 10)
                                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
                                 .addComponent(jLabel4)
                                 .addGap(11, 11, 11)
                                 .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel18)
+                                .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(formacao, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -402,19 +409,14 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                 .addComponent(jLabel14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel9))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel18))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel9)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel18)
+                                .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(formacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -439,7 +441,6 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(uf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -447,7 +448,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel15)
-                            .addComponent(jLabel16)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel16)
+                                .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel17))))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -473,7 +476,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -482,7 +485,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
     private void tabelacandidatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelacandidatosMouseClicked
         // TODO add your handling code here:
         //quando o o entrevistador clicar em uma linha da tabela
-        int linha = this.tabelacandidatos.getSelectedRow();
+        /*int linha = this.tabelacandidatos.getSelectedRow();
         
         String nome1 = tabelacandidatos.getModel().getValueAt(linha, 0).toString();
         String cpf1 = tabelacandidatos.getModel().getValueAt(linha, 1).toString();
@@ -503,10 +506,10 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         this.nascimento.setText(nasc);
         this.telefone.setText(tel);
         this.endereco.setText(ender);
-        this.cep.setText(cep1);
+        this.genero.setText(cep1);
         this.uf.setText(uf1);
         this.curso.setText(curso1);
-        this.experiencia.setText(exp);
+        this.experiencia.setText(exp);*/
             
     }//GEN-LAST:event_tabelacandidatosMouseClicked
 
@@ -514,9 +517,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_enderecoActionPerformed
 
-    private void cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepActionPerformed
+    private void generoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cepActionPerformed
+    }//GEN-LAST:event_generoActionPerformed
 
     private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed
         // TODO add your handling code here:
@@ -528,6 +531,63 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        //botao de cadastrar
+        String nome1 = this.nome.getText();
+        String email1 = this.email.getText();
+        String cpf1 = this.cpf.getText();
+        String nasc1 = this.nascimento.getText();
+        String genero1 = this.genero.getText();
+        String formacao1 = this.formacao.getText();
+        String telefone1 = this.telefone.getText();
+        String endereco1 = this.endereco.getText();
+        String numero1 = this.numero.getText();
+        String cep1 = this.cep.getText();
+        String uf1 = this.uf.getText();
+        String curso1 = this.curso.getText();
+        String exp1 = this.experiencia.getText();
+        
+        EntrevistadorDAO dao = new EntrevistadorDAO();
+        
+        Entrevistador a = new Entrevistador();
+        
+        
+        //System.out.println("o id do entrevistador no arquivo controle candidato e´: " + a.getNome());
+        int idEntrevistador1 = dao.getID();
+        //int idEntrevistador1 = 1;
+        
+        Cadidato candidato = new Cadidato();
+        
+        candidato.setNome(nome1);
+        candidato.setEmail(email1);
+        candidato.setCpf(cpf1);
+        candidato.setNiversario(nasc1);
+        candidato.setGenero(genero1);
+        candidato.setFormacao(formacao1);
+        candidato.setTelefone(telefone1);
+        candidato.setEndereco(endereco1);
+        candidato.setNumero(numero1);
+        candidato.setCep(cep1);
+        candidato.setUf(uf1);
+        candidato.setCursos(curso1);
+        candidato.setEsperiecia(endereco1);
+        candidato.setIdEntrevistador(idEntrevistador1);
+        
+        
+        CandidatoBO bo = new CandidatoBO();
+        
+        try {
+            bo.cadastrar(candidato);
+            JOptionPane.showMessageDialog(null, "candidato foi cadastrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Houve um erro na hora de cadastrar um candidato");
+        }
+        preencherTabela();
+        
+        
+       
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -538,6 +598,14 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cepActionPerformed
+
+    private void formacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formacaoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cep;
@@ -546,11 +614,11 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField email;
     private javax.swing.JTextField endereco;
     private javax.swing.JTextField experiencia;
+    private javax.swing.JTextField formacao;
+    private javax.swing.JTextField genero;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

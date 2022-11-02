@@ -9,7 +9,26 @@ package modelos;
  * @author Ezeks
  */
 public class Cadidato {
-    private String nome, sobrenome, cpf, sexo, email, cursos,esperiecia, genero, niversario, telefone, endereco, cep , uf;
+    private String nome, sobrenome, cpf, sexo, email, cursos,esperiecia, genero, niversario, telefone, endereco, cep , uf, formacao;
+
+    public String getFormacao() {
+        return formacao;
+    }
+
+    public void setFormacao(String formacao) {
+        this.formacao = formacao;
+    }
+    
+    
+    private int idEntrevistador;
+
+    public int getIdEntrevistador() {
+        return idEntrevistador;
+    }
+
+    public void setIdEntrevistador(int idEntrevistador) {
+        this.idEntrevistador = idEntrevistador;
+    }
 
     public String getEndereco() {
         return endereco;
@@ -101,15 +120,15 @@ public class Cadidato {
 
 
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
     //private double telefone;
-    private int idade, numero;
+    private String idade, numero;
 
     public String getCep() {
         return cep;
@@ -127,11 +146,11 @@ public class Cadidato {
         this.uf = uf;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
     

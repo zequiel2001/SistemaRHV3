@@ -53,4 +53,28 @@ public class CandidatoBO {
         }
 
    }
+    
+    public void deletar(Cadidato candidato){
+    
+        CandidatoDAO dao = new CandidatoDAO();
+        try {
+           dao.excluir(candidato);
+        } catch (Exception e) {
+             throw new RuntimeException("Erro ao excluir a informação no banco de dados");
+        }
+    
+    }
+    
+    public void atualizar(Cadidato candidato){
+        CandidatoDAO dao = new CandidatoDAO();
+        
+        try {
+            dao.alterar(candidato);
+        } catch (Exception e) {
+            throw new RuntimeException("Ops parece que ocorreu um erro no momento de atualizar as informações no banco");
+        }
+    
+    }
+        
+        
 }

@@ -10,7 +10,15 @@ package modelos;
  */
 public class Cadidato {
     private String nome, sobrenome, cpf, sexo, email, cursos,esperiecia, genero, niversario, telefone, endereco, cep , uf, formacao;
+    private int idCandidato;
 
+    public int getIdCandidato() {
+        return idCandidato;
+    }
+
+    public void setIdCandidato(int idCandidato) {
+        this.idCandidato = idCandidato;
+    }
     public String getFormacao() {
         return formacao;
     }

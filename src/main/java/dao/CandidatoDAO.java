@@ -31,14 +31,14 @@ public class CandidatoDAO {
        
        try{
            
-            stmt = con.prepareStatement("SELECT nome, email, cpf, nascimento, genero, formacao, telefone, endereco, cep, numero, uf, curso, experiencia FROM candidatos;");
+            stmt = con.prepareStatement("SELECT id, nome, email, cpf, nascimento, genero, formacao, telefone, endereco, cep, numero, uf, curso, experiencia FROM candidatos;");
             //
             //stmt vai executar a query e em seguinda vai jogar o resultado na variavel que vai receber todo o resultado
             rs = stmt.executeQuery();
            
            while (rs.next()){
                Cadidato candidato =  new Cadidato();
-              
+                candidato.setIdCandidato(rs.getInt("id"));
                 candidato.setNome(rs.getString("nome"));
                 candidato.setEmail(rs.getString("email"));
                 
@@ -108,8 +108,8 @@ public class CandidatoDAO {
             stmt.setString(13, candidato.getEsperiecia());
             stmt.setInt(14, candidato.getIdEntrevistador());
             
-            int a = candidato.getIdEntrevistador();
-            System.out.println("o id do entrevistador no arquivo dao é : " + a);
+            //int a = candidato.getIdEntrevistador();
+            //System.out.println("o id do entrevistador no arquivo dao é : " + a);
             
             //Executa a instrução SQL no objeto
             stmt.executeUpdate();
@@ -126,4 +126,81 @@ public class CandidatoDAO {
         
         
     }
+    
+    
+        public void excluir(Cadidato candidato) {
+        
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("DELETE from candidatos WHERE id = ?");
+           
+            stmt.setInt(1, candidato.getIdCandidato());
+            
+            
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+            //  throw new RuntimeException("Erro ao inserir informação no banco de dados");
+        } finally {
+            Conexao.fecharConexao(con, stmt);
+
+        }
+
+    }
+        
+            public void alterar(Cadidato candidato) {
+        
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE candidatos SET nome = ?, email = ?, cpf = ?, nascimento = ?, genero = ?, formacao = ?, telefone = ?, endereco = ?, cep = ?, numero = ?, uf = ?, curso = ?, experiencia = ? where id = ? ");
+            System.out.println("o valor do id  na classe dao é: " + candidato.getIdCandidato());
+            
+            stmt.setString(1, candidato.getNome());
+            stmt.setString(2, candidato.getEmail());
+            stmt.setString(3, candidato.getCpf());
+            
+            stmt.setString(4, candidato.getNiversario());
+            stmt.setString(5, candidato.getGenero());
+            
+            
+            stmt.setString(6, candidato.getFormacao());
+            
+            stmt.setString(7, candidato.getTelefone());
+            
+            stmt.setString(8, candidato.getEndereco());
+            
+            stmt.setString(9, candidato.getCep());
+            
+            stmt.setString(10, candidato.getNumero());
+            stmt.setString(11, candidato.getUf());
+            stmt.setString(12, candidato.getCursos());
+            stmt.setString(13, candidato.getEsperiecia());
+
+            
+            stmt.setInt(14, candidato.getIdCandidato());    
+            
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+            //  throw new RuntimeException("Erro ao inserir informação no banco de dados");
+        } finally {
+            Conexao.fecharConexao(con, stmt);
+
+        }
+
+    }
+        
+        
+        
+    
+    
+    
 }

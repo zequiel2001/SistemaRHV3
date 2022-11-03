@@ -69,7 +69,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
          
          for (Cadidato candidato: candidatobo.consulta()){
              modeltable.addRow(new Object[]{
-             candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getNumero(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
+             candidato.getIdCandidato() ,candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getNumero(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
              });
          }
              
@@ -128,13 +128,13 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         tabelacandidatos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tabelacandidatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Cpf", "Email", "Birth date", "Phone", "Genre", "Formacao", "Address", "Número", "CEP", "UF", "Courses", "Experiences"
+                "Id", "Name", "Email", "Cpf", "Birth date", "Phone", "Genre", "Formacao", "Address", "Número", "CEP", "UF", "Courses", "Experiences"
             }
         ));
         tabelacandidatos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -146,9 +146,6 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tabelacandidatos);
         if (tabelacandidatos.getColumnModel().getColumnCount() > 0) {
-            tabelacandidatos.getColumnModel().getColumn(0).setMinWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(0).setPreferredWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(0).setMaxWidth(230);
             tabelacandidatos.getColumnModel().getColumn(1).setMinWidth(230);
             tabelacandidatos.getColumnModel().getColumn(1).setPreferredWidth(230);
             tabelacandidatos.getColumnModel().getColumn(1).setMaxWidth(230);
@@ -156,20 +153,20 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             tabelacandidatos.getColumnModel().getColumn(2).setPreferredWidth(230);
             tabelacandidatos.getColumnModel().getColumn(2).setMaxWidth(230);
             tabelacandidatos.getColumnModel().getColumn(3).setMinWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tabelacandidatos.getColumnModel().getColumn(3).setPreferredWidth(230);
             tabelacandidatos.getColumnModel().getColumn(3).setMaxWidth(230);
             tabelacandidatos.getColumnModel().getColumn(4).setMinWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(4).setPreferredWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(4).setPreferredWidth(120);
             tabelacandidatos.getColumnModel().getColumn(4).setMaxWidth(230);
             tabelacandidatos.getColumnModel().getColumn(5).setMinWidth(230);
             tabelacandidatos.getColumnModel().getColumn(5).setPreferredWidth(230);
             tabelacandidatos.getColumnModel().getColumn(5).setMaxWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(7).setMinWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(7).setPreferredWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(7).setMaxWidth(230);
-            tabelacandidatos.getColumnModel().getColumn(8).setMinWidth(300);
-            tabelacandidatos.getColumnModel().getColumn(8).setPreferredWidth(300);
-            tabelacandidatos.getColumnModel().getColumn(8).setMaxWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(6).setMinWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(6).setPreferredWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(6).setMaxWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(8).setMinWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(8).setPreferredWidth(230);
+            tabelacandidatos.getColumnModel().getColumn(8).setMaxWidth(230);
             tabelacandidatos.getColumnModel().getColumn(9).setMinWidth(300);
             tabelacandidatos.getColumnModel().getColumn(9).setPreferredWidth(300);
             tabelacandidatos.getColumnModel().getColumn(9).setMaxWidth(300);
@@ -182,6 +179,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             tabelacandidatos.getColumnModel().getColumn(12).setMinWidth(300);
             tabelacandidatos.getColumnModel().getColumn(12).setPreferredWidth(300);
             tabelacandidatos.getColumnModel().getColumn(12).setMaxWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(13).setMinWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(13).setPreferredWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(13).setMaxWidth(300);
         }
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
@@ -407,19 +407,15 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jLabel14)
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel9)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel18)
-                                .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(formacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel9)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18)
+                        .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(formacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -485,18 +481,25 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
     private void tabelacandidatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelacandidatosMouseClicked
         // TODO add your handling code here:
         //quando o o entrevistador clicar em uma linha da tabela
-        /*int linha = this.tabelacandidatos.getSelectedRow();
+        int linha = this.tabelacandidatos.getSelectedRow();
+        int id = (int) tabelacandidatos.getModel().getValueAt(linha, 0);
         
-        String nome1 = tabelacandidatos.getModel().getValueAt(linha, 0).toString();
-        String cpf1 = tabelacandidatos.getModel().getValueAt(linha, 1).toString();
+        String nome1 = tabelacandidatos.getModel().getValueAt(linha, 1).toString();
         String email1 = tabelacandidatos.getModel().getValueAt(linha, 2).toString();
-        String nasc = tabelacandidatos.getModel().getValueAt(linha, 3).toString();
-        String tel = tabelacandidatos.getModel().getValueAt(linha, 4).toString();
-        String ender = tabelacandidatos.getModel().getValueAt(linha, 6).toString();
-        String cep1 = tabelacandidatos.getModel().getValueAt(linha, 7).toString();
-        String uf1 = tabelacandidatos.getModel().getValueAt(linha, 9).toString();
-        String curso1 = tabelacandidatos.getModel().getValueAt(linha, 10).toString();
-        String exp = tabelacandidatos.getModel().getValueAt(linha, 11).toString();
+        String cpf1 = tabelacandidatos.getModel().getValueAt(linha, 3).toString();
+        String nasc = tabelacandidatos.getModel().getValueAt(linha, 4).toString();
+        String tel = tabelacandidatos.getModel().getValueAt(linha, 5).toString();
+        String genero2 = tabelacandidatos.getModel().getValueAt(linha, 6).toString();
+        String formacao2 = tabelacandidatos.getModel().getValueAt(linha, 7).toString();
+        String ender = tabelacandidatos.getModel().getValueAt(linha, 8).toString();
+        String numero2 = tabelacandidatos.getModel().getValueAt(linha, 9).toString();
+        String cep1 = tabelacandidatos.getModel().getValueAt(linha, 10).toString();
+        
+        
+        
+        String uf1 = tabelacandidatos.getModel().getValueAt(linha, 11).toString();
+        String curso1 = tabelacandidatos.getModel().getValueAt(linha, 12).toString();
+        String exp = tabelacandidatos.getModel().getValueAt(linha, 13).toString();
         //String n1 = tabelacandidatos.getModel().getValueAt(linha, 10).toString();
         
         
@@ -505,11 +508,16 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         this.email.setText(email1);
         this.nascimento.setText(nasc);
         this.telefone.setText(tel);
+        this.genero.setText(genero2);
+        this.formacao.setText(formacao2);
         this.endereco.setText(ender);
-        this.genero.setText(cep1);
+        this.numero.setText(numero2);
+        this.cep.setText(cep1);
         this.uf.setText(uf1);
         this.curso.setText(curso1);
-        this.experiencia.setText(exp);*/
+        this.experiencia.setText(exp);
+        
+        System.out.println("o id da candidato é: " + id);
             
     }//GEN-LAST:event_tabelacandidatosMouseClicked
 
@@ -570,7 +578,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         candidato.setCep(cep1);
         candidato.setUf(uf1);
         candidato.setCursos(curso1);
-        candidato.setEsperiecia(endereco1);
+        candidato.setEsperiecia(exp1);
         candidato.setIdEntrevistador(idEntrevistador1);
         
         
@@ -592,10 +600,84 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        //atualizar
+        int linha = this.tabelacandidatos.getSelectedRow();
+        int coluna = 0;
+        int Id = Integer.parseInt(tabelacandidatos.getModel().getValueAt(linha, coluna).toString());
+        System.out.println("o valor do id  na classe controle é: " + Id);
+        
+        String nome3 = this.nome.getText();
+        String email3 = this.email.getText();
+        String cpf3 = this.cpf.getText();
+        String nasc3 = this.nascimento.getText();
+        String genero3 = this.genero.getText();
+        String formacao3 = this.formacao.getText();
+        String telefone3 = this.telefone.getText();
+        String endereco3 = this.endereco.getText();
+        String numero3 = this.numero.getText();
+        String cep3 = this.cep.getText();
+        String uf3 = this.uf.getText();
+        String curso3 = this.curso.getText();
+        String exp3 = this.experiencia.getText();
+        
+        Cadidato candidato = new Cadidato();
+        
+        candidato.setIdCandidato(Id);
+        candidato.setNome(nome3);
+        candidato.setEmail(email3);
+        candidato.setCpf(cpf3);
+        candidato.setNiversario(nasc3);
+        candidato.setGenero(genero3);
+        candidato.setFormacao(formacao3);
+        candidato.setTelefone(telefone3);
+        candidato.setEndereco(endereco3);
+        candidato.setNumero(numero3);
+        candidato.setCep(cep3);
+        candidato.setUf(uf3);
+        candidato.setCursos(curso3);
+        candidato.setEsperiecia(exp3);
+        
+        CandidatoBO bo = new CandidatoBO();
+        
+        try {
+            bo.atualizar(candidato);
+            JOptionPane.showMessageDialog(null, "Candidato atualizado com sucesso");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "erro ao atualizar o candidato");
+            
+        }
+        preencherTabela();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
+        //deletar
+        int linha = this.tabelacandidatos.getSelectedRow();
+        int coluna = 0;
+        
+        String value = tabelacandidatos.getModel().getValueAt(linha, coluna).toString();
+        
+        Cadidato candidato = new Cadidato();
+        
+        candidato.setIdCandidato(Integer.parseInt(value));
+        
+        CandidatoBO bo = new CandidatoBO();
+        
+        try {
+            bo.deletar(candidato);
+            JOptionPane.showMessageDialog(null, "Candidato excluída com sucesso");
+            
+        } catch (Exception e) {
+             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao excluir a o candidato");
+        }
+        preencherTabela();
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepActionPerformed

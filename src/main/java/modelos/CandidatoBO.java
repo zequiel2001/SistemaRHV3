@@ -12,15 +12,6 @@ import java.util.ArrayList;
  */
 public class CandidatoBO {
     
-    /*public List<Cadidato> consulta(){
-        
-        CandidatoDAO candidatodao = new CandidatoDAO();
-        
-        List<Cadidato> candidatos = candidatodao.consulta();
-        
-        return candidatos;
-    }*/
-    
     
     public List<Cadidato> consulta(){
      

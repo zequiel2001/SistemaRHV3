@@ -10,7 +10,16 @@ package modelos;
  */
 public class Pergunta {
     private String pergunta;
+    private int idPergunta;
+    public int getIdPergunta() {
+        return idPergunta;
+    }
 
+    public void setIdPergunta(int idPergunta) {
+        this.idPergunta = idPergunta;
+    }
+    
+   
     public String getPergunta() {
         return pergunta;
     }
@@ -18,4 +27,20 @@ public class Pergunta {
     public void setPergunta(String pergunta) {
         this.pergunta = pergunta;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
+
+
+

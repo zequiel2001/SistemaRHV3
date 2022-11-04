@@ -80,17 +80,18 @@ public class CandidatoDAO {
     
     
     
-    
+    int idCand;
     public void cadastrar(Cadidato candidato){
         //cria variavel de conexao
         Connection con = Conexao.getConexao();
         //variavel que prepara a estrutura para fazer as inserções de dados 
         PreparedStatement stmt = null;
+        ResultSet rs = null;
         
         try {
             
             stmt = con.prepareStatement("INSERT INTO candidatos(nome, email, cpf, nascimento, genero, formacao, telefone, endereco, cep, numero, uf, curso, experiencia, Entrevistador_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            
+           
             
             
             stmt.setString(1, candidato.getNome());
@@ -113,6 +114,11 @@ public class CandidatoDAO {
             
             //Executa a instrução SQL no objeto
             stmt.executeUpdate();
+            
+            stmt = con.prepareStatement("select max(id) from candidatos");
+            rs = stmt.executeQuery();
+  
+            
             
         //caso ocorra um erro    
         } catch (SQLException ex) {
@@ -152,7 +158,7 @@ public class CandidatoDAO {
 
     }
         
-            public void alterar(Cadidato candidato) {
+    public void alterar(Cadidato candidato) {
         
         Connection con = Conexao.getConexao();
         PreparedStatement stmt = null;

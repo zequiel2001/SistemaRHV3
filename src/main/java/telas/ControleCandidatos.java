@@ -605,6 +605,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         int linha = this.tabelacandidatos.getSelectedRow();
         int coluna = 0;
         int Id = Integer.parseInt(tabelacandidatos.getModel().getValueAt(linha, coluna).toString());
+        
         System.out.println("o valor do id  na classe controle é: " + Id);
         
         String nome3 = this.nome.getText();

@@ -1,41 +1,100 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
+import conexao.Conexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelos.Cadidato;
 import modelos.Pergunta;
 
-/**
- *
- * @author Ezeks
- */
 public class PerguntaDAO {
-    public List<Pergunta> consulta(){
+    public java.util.List<Pergunta> consulta(){
         
-        List<Pergunta> pergunta = new ArrayList<>();
-        
-        Pergunta p = new Pergunta();
-        p.setPergunta("Could you tell me about yourself and describe your background briefly?");
-        
-        Pergunta p1 = new Pergunta();
-        p1.setPergunta("Tell me about your professional experiences (if you have any).");
-        
-        Pergunta p2 = new Pergunta();
-        p2.setPergunta("What are your working hours?");
-        
-        Pergunta p3 = new Pergunta();
-        p3.setPergunta("Why  did you choose this job/career?");
-        
-        pergunta.add(p);
-        pergunta.add(p1);
-        pergunta.add(p2);
-        pergunta.add(p3);
-        
-    
-        
-        return pergunta;
+       Connection con = Conexao.getConexao();
+       PreparedStatement stmt = null;
+       
+       ResultSet rs = null;
+       
+       java.util.List<Pergunta> perguntas = new ArrayList<Pergunta>();
+       
+       try{
+           
+            stmt = con.prepareStatement("SELECT id, pergunta FROM perguntas;");
+
+            rs = stmt.executeQuery();
+           
+           while (rs.next()){
+               Pergunta pergunta = new Pergunta();
+               
+               pergunta.setIdPergunta(rs.getInt("id"));
+               pergunta.setPergunta(rs.getString("pergunta"));
+               
+               perguntas.add(pergunta);
+               
+           }
+           
+       }catch (SQLException s){
+           s.printStackTrace();
+           
+       }
+        finally {
+            Conexao.fecharConexao(con, stmt);
+        } 
+      return perguntas;
     }
+    
+    public void cadastrarPergunta(Pergunta pergunta){
+ 
+        Connection con = Conexao.getConexao();
+
+        PreparedStatement stmt = null;
+
+        try {
+
+            stmt = con.prepareStatement("INSERT INTO perguntas (pergunta) VALUES (?)");
+
+            stmt.setString(1, pergunta.getPergunta());
+
+            stmt.executeUpdate();
+
+  
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            
+        } finally {
+            Conexao.fecharConexao(con, stmt);
+        }
+
+    }
+    
+    
+    public void alterar(Pergunta pergunta) {
+        
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("UPDATE perguntas SET pergunta = ? where id = ? ");
+            
+            stmt.setString(1, pergunta.getPergunta());
+            stmt.setInt(2, pergunta.getIdPergunta());    
+            
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+            //  throw new RuntimeException("Erro ao inserir informação no banco de dados");
+        } finally {
+            Conexao.fecharConexao(con, stmt);
+
+        }
+    }  
+    
+
+   
 }

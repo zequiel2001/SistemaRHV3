@@ -49,22 +49,6 @@ public class EntrevistadorDAO {
                //System.out.println("o id do entrevistador é " + idEntrevistado);
                
            }
-            
-            
-            
-            /*while (rs.next()){
-               Entrevistador entrevistado =  new Entrevistador();
-              
-               entrevistado.setId(rs.getInt("id"));
-               entrevistado.setNome(rs.getString("nome"));
-               entrevistado.setSenha(rs.getString("senha"));
-            
-           
-               
-               //entrevistados.add(entrevistado);
-               
-           }*/
-           
            
        }catch (SQLException s){
            s.printStackTrace();
@@ -121,22 +105,5 @@ public class EntrevistadorDAO {
         
         
         
-    }
-        
-        
-    public void pegarIdUsuario(){
-    
-        Connection con = Conexao.getConexao();
-        PreparedStatement stmt = null;
-        
-        try {
-            stmt = con.prepareStatement("INSERT INTO entrevistador (usuario, senha, cpf, nome) VALUES (?,?,?,?)");
-            
-        } catch (Exception e) {
-        }
-        
-    
-    
-    
     }
 }

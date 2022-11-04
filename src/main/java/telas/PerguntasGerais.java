@@ -7,20 +7,14 @@ package telas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Pergunta;
 import modelos.PerguntaBO;
 
-/**
- *
- * @author Ezeks
- */
 public class PerguntasGerais extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form PerguntasGerais
-     */
     public PerguntasGerais() {
         initComponents();
         
@@ -28,31 +22,6 @@ public class PerguntasGerais extends javax.swing.JInternalFrame {
         tabelaPergunta.setRowSorter(new TableRowSorter(modeltable));
         preencherTabela();
         
-        
-        /*jButton1.setFont(new Font("Ravie", 1, 18));
-        jButton1.setForeground(new Color(60,60,60));
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(176,224,230), 3));
-        
-        jButton1.setRequestFocusEnabled(false);
-       jButton1.setRolloverEnabled(false);
-       jButton1.setMargin(new Insets(2, 1000, 2, 14));
-       
-       jButton2.setFont(new Font("Ravie", 1, 18));
-        jButton2.setForeground(new Color(60,60,60));
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(176,224,230), 3));
-        
-        jButton2.setRequestFocusEnabled(false);
-       jButton2.setRolloverEnabled(false);
-       jButton2.setMargin(new Insets(2, 1000, 2, 14));
-       
-       jButton3.setFont(new Font("Ravie", 1, 18));
-        jButton3.setForeground(new Color(60,60,60));
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(176,224,230), 3));
-       
-       jButton3.setRequestFocusEnabled(false);
-       jButton3.setRolloverEnabled(false);
-       jButton3.setMargin(new Insets(2, 1000, 2, 14));
-        */
     }
     
     public void preencherTabela(){
@@ -63,7 +32,7 @@ public class PerguntasGerais extends javax.swing.JInternalFrame {
          
          for (Pergunta p: perguntabo.consulta()){
              modeltable.addRow(new Object[]{
-             p.getPergunta()
+             p.getIdPergunta() ,p.getPergunta()
              });
          }
              
@@ -117,13 +86,13 @@ public class PerguntasGerais extends javax.swing.JInternalFrame {
 
         tabelaPergunta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Question"
+                "Id", "Question"
             }
         ));
         tabelaPergunta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,6 +101,11 @@ public class PerguntasGerais extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane2.setViewportView(tabelaPergunta);
+        if (tabelaPergunta.getColumnModel().getColumnCount() > 0) {
+            tabelaPergunta.getColumnModel().getColumn(0).setMinWidth(50);
+            tabelaPergunta.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tabelaPergunta.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 610, 130));
 
@@ -145,6 +119,11 @@ public class PerguntasGerais extends javax.swing.JInternalFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 170, -1));
 
         jButton3.setBackground(new java.awt.Color(102, 102, 102));
@@ -191,12 +170,40 @@ public class PerguntasGerais extends javax.swing.JInternalFrame {
     private void tabelaPerguntaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaPerguntaMouseClicked
         // TODO add your handling code here:
          int linha = this.tabelaPergunta.getSelectedRow();
-         String pergunta1 = tabelaPergunta.getModel().getValueAt(linha, 0).toString();
+         String pergunta1 = tabelaPergunta.getModel().getValueAt(linha, 1).toString();
          this.pergunta.setText(pergunta1);
          
          
         
     }//GEN-LAST:event_tabelaPerguntaMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        //atualizado 
+        int linha = this.tabelaPergunta.getSelectedRow();
+        int coluna = 0;
+        int Id = Integer.parseInt(tabelaPergunta.getModel().getValueAt(linha, coluna).toString());
+        String perguntaUpdate = this.pergunta.getText();
+        
+        Pergunta pergunta = new Pergunta();
+        pergunta.setIdPergunta(Id);
+        pergunta.setPergunta(perguntaUpdate);
+        
+        PerguntaBO bo = new PerguntaBO();
+        
+        try {
+            bo.atualizar(pergunta);
+            JOptionPane.showMessageDialog(null, "Pergunta atualizado com sucesso");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "erro ao atualizar a pergunta");
+        }
+        preencherTabela();
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

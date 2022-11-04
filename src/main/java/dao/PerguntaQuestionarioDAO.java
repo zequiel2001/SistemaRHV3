@@ -92,5 +92,38 @@ public class PerguntaQuestionarioDAO {
         return candidatos;
 
     }
+    
+    
+    public void cadastrarResposta(java.util.List<PerguntaQuestionario> perguntasQ, int id){
+        //cria variavel de conexao
+        Connection con = Conexao.getConexao();
+        //variavel que prepara a estrutura para fazer as inserções de dados 
+        PreparedStatement stmt = null;
+       
+        try {
+            
+            stmt = con.prepareStatement("INSERT INTO candidatos_has_perguntas(Candidatos_id, Perguntas_id, resposta) VALUES (?,?,?)");
+           
+            
+            for(int i = 0; i < perguntasQ.size(); i++){
+                
+                stmt.setInt(1, id);
+                stmt.setInt(2, perguntasQ.get(i).getIdPergunta());
+                stmt.setString(3, perguntasQ.get(i).getResposta());
+                stmt.executeUpdate();
+                
+                
+            }
+           
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        } finally {
+            Conexao.fecharConexao(con, stmt);
+        }
+        
+        
+        
+    }
 
 }

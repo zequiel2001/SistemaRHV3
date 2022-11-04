@@ -10,6 +10,7 @@ import modelos.Pergunta;
 import dao.PerguntaDAO;
 import modelos.PerguntaQuestionario;
 import dao.PerguntaQuestionarioDAO;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import modelos.Cadidato;
@@ -25,6 +26,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
     /**
      * Creates new form Questionario1
      */
+    java.util.List<PerguntaQuestionario> perguntas = new ArrayList<PerguntaQuestionario>();
     public Questionario1() {
         initComponents();
         DefaultTableModel modeltable = (DefaultTableModel) tabelacandidatos.getModel();
@@ -34,7 +36,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         PerguntaQuestionario questionario = new PerguntaQuestionario();
         
         
-        java.util.List<PerguntaQuestionario> perguntas = new ArrayList<PerguntaQuestionario>();
+        
         
         PerguntaQuestionarioDAO dao = new PerguntaQuestionarioDAO();
         
@@ -140,8 +142,15 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         pergunta7 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         resposta7 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setClosable(true);
+        setTitle("Questionario");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(728, 570));
 
         painel1.setLayout(null);
 
@@ -153,7 +162,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Questions for the Interviewed");
         kGradientPanel1.add(jLabel1);
-        jLabel1.setBounds(15, 16, 325, 32);
+        jLabel1.setBounds(40, 20, 325, 32);
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
         jPanel4.setPreferredSize(new java.awt.Dimension(403, 3));
@@ -170,56 +179,59 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         );
 
         kGradientPanel1.add(jPanel4);
-        jPanel4.setBounds(15, 54, 403, 3);
+        jPanel4.setBounds(40, 60, 403, 3);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Select the candidate you wish to interview:");
         kGradientPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 80, 420, 17);
+        jLabel7.setBounds(40, 80, 420, 17);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Answer:");
         kGradientPanel1.add(jLabel8);
-        jLabel8.setBounds(15, 320, 57, 17);
+        jLabel8.setBounds(40, 320, 57, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Question 2");
         kGradientPanel1.add(jLabel9);
-        jLabel9.setBounds(15, 380, 75, 17);
+        jLabel9.setBounds(40, 380, 75, 17);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Answer:");
         kGradientPanel1.add(jLabel10);
-        jLabel10.setBounds(15, 420, 57, 17);
+        jLabel10.setBounds(40, 420, 57, 17);
 
         pergunta2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         pergunta2.setForeground(new java.awt.Color(102, 102, 102));
         pergunta2.setBorder(null);
         kGradientPanel1.add(pergunta2);
-        pergunta2.setBounds(108, 376, 518, 22);
+        pergunta2.setBounds(130, 380, 530, 22);
 
         pergunta1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         pergunta1.setForeground(new java.awt.Color(102, 102, 102));
         pergunta1.setBorder(null);
         kGradientPanel1.add(pergunta1);
-        pergunta1.setBounds(108, 276, 518, 22);
+        pergunta1.setBounds(130, 280, 530, 22);
 
         resposta2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         resposta2.setForeground(new java.awt.Color(51, 51, 51));
         resposta2.setBorder(null);
         kGradientPanel1.add(resposta2);
-        resposta2.setBounds(110, 420, 518, 21);
+        resposta2.setBounds(128, 420, 530, 21);
 
         resposta1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         resposta1.setForeground(new java.awt.Color(51, 51, 51));
         resposta1.setBorder(null);
         kGradientPanel1.add(resposta1);
-        resposta1.setBounds(108, 320, 518, 21);
+        resposta1.setBounds(130, 320, 530, 21);
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Proximo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +239,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
             }
         });
         kGradientPanel1.add(jButton1);
-        jButton1.setBounds(550, 500, 75, 22);
+        jButton1.setBounds(550, 470, 110, 26);
 
         tabelacandidatos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tabelacandidatos.setModel(new javax.swing.table.DefaultTableModel(
@@ -250,32 +262,32 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tabelacandidatos);
         if (tabelacandidatos.getColumnModel().getColumnCount() > 0) {
-            tabelacandidatos.getColumnModel().getColumn(1).setMinWidth(300);
-            tabelacandidatos.getColumnModel().getColumn(1).setPreferredWidth(300);
-            tabelacandidatos.getColumnModel().getColumn(1).setMaxWidth(300);
+            tabelacandidatos.getColumnModel().getColumn(1).setMinWidth(160);
+            tabelacandidatos.getColumnModel().getColumn(1).setPreferredWidth(160);
+            tabelacandidatos.getColumnModel().getColumn(1).setMaxWidth(160);
             tabelacandidatos.getColumnModel().getColumn(2).setMinWidth(300);
             tabelacandidatos.getColumnModel().getColumn(2).setPreferredWidth(300);
             tabelacandidatos.getColumnModel().getColumn(2).setMaxWidth(300);
-            tabelacandidatos.getColumnModel().getColumn(3).setMinWidth(50);
-            tabelacandidatos.getColumnModel().getColumn(3).setPreferredWidth(50);
-            tabelacandidatos.getColumnModel().getColumn(3).setMaxWidth(50);
+            tabelacandidatos.getColumnModel().getColumn(3).setMinWidth(90);
+            tabelacandidatos.getColumnModel().getColumn(3).setPreferredWidth(90);
+            tabelacandidatos.getColumnModel().getColumn(3).setMaxWidth(90);
         }
 
         kGradientPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 120, 452, 110);
+        jScrollPane2.setBounds(40, 120, 620, 110);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(102, 102, 102));
         jLabel21.setText("Question 1");
         kGradientPanel1.add(jLabel21);
-        jLabel21.setBounds(15, 280, 75, 17);
+        jLabel21.setBounds(40, 280, 75, 17);
 
         painel1.add(kGradientPanel1);
         kGradientPanel1.setBounds(0, 0, 710, 570);
 
         slide.add(painel1, "card2");
 
-        kGradientPanel2.setkEndColor(new java.awt.Color(255, 255, 255));
+        kGradientPanel2.setkEndColor(new java.awt.Color(233, 231, 231));
         kGradientPanel2.setkStartColor(new java.awt.Color(215, 215, 215));
         kGradientPanel2.setLayout(null);
 
@@ -283,7 +295,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Questions for the Interviewed");
         kGradientPanel2.add(jLabel2);
-        jLabel2.setBounds(15, 16, 325, 32);
+        jLabel2.setBounds(40, 20, 325, 32);
 
         jPanel5.setBackground(new java.awt.Color(102, 102, 102));
         jPanel5.setPreferredSize(new java.awt.Dimension(403, 3));
@@ -300,104 +312,107 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         );
 
         kGradientPanel2.add(jPanel5);
-        jPanel5.setBounds(15, 54, 403, 3);
+        jPanel5.setBounds(40, 60, 403, 3);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Question 3");
         kGradientPanel2.add(jLabel11);
-        jLabel11.setBounds(15, 79, 75, 17);
+        jLabel11.setBounds(40, 80, 75, 17);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Answer:");
         kGradientPanel2.add(jLabel12);
-        jLabel12.setBounds(15, 120, 57, 17);
+        jLabel12.setBounds(40, 120, 57, 17);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Question 4");
         kGradientPanel2.add(jLabel13);
-        jLabel13.setBounds(15, 176, 75, 17);
+        jLabel13.setBounds(40, 180, 75, 17);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Answer:");
         kGradientPanel2.add(jLabel14);
-        jLabel14.setBounds(15, 216, 57, 17);
+        jLabel14.setBounds(40, 220, 57, 17);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Question 5");
         kGradientPanel2.add(jLabel15);
-        jLabel15.setBounds(15, 280, 75, 17);
+        jLabel15.setBounds(40, 280, 75, 17);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Answer:");
         kGradientPanel2.add(jLabel16);
-        jLabel16.setBounds(15, 320, 57, 17);
+        jLabel16.setBounds(40, 320, 57, 17);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Question 6");
         kGradientPanel2.add(jLabel17);
-        jLabel17.setBounds(15, 380, 75, 17);
+        jLabel17.setBounds(40, 380, 75, 17);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
         jLabel18.setText("Answer:");
         kGradientPanel2.add(jLabel18);
-        jLabel18.setBounds(15, 420, 57, 17);
+        jLabel18.setBounds(40, 420, 57, 17);
 
         pergunta3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         pergunta3.setForeground(new java.awt.Color(102, 102, 102));
         pergunta3.setBorder(null);
         kGradientPanel2.add(pergunta3);
-        pergunta3.setBounds(108, 75, 518, 22);
+        pergunta3.setBounds(140, 80, 518, 22);
 
         pergunta4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         pergunta4.setForeground(new java.awt.Color(102, 102, 102));
         pergunta4.setBorder(null);
         kGradientPanel2.add(pergunta4);
-        pergunta4.setBounds(108, 172, 518, 22);
+        pergunta4.setBounds(140, 180, 518, 22);
 
         pergunta6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         pergunta6.setForeground(new java.awt.Color(102, 102, 102));
         pergunta6.setBorder(null);
         kGradientPanel2.add(pergunta6);
-        pergunta6.setBounds(108, 376, 518, 22);
+        pergunta6.setBounds(140, 380, 518, 22);
 
         pergunta5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         pergunta5.setForeground(new java.awt.Color(102, 102, 102));
         pergunta5.setBorder(null);
         kGradientPanel2.add(pergunta5);
-        pergunta5.setBounds(108, 276, 518, 22);
+        pergunta5.setBounds(140, 280, 518, 22);
 
         resposta3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         resposta3.setForeground(new java.awt.Color(51, 51, 51));
         resposta3.setBorder(null);
         kGradientPanel2.add(resposta3);
-        resposta3.setBounds(108, 117, 518, 21);
+        resposta3.setBounds(140, 120, 518, 21);
 
         resposta6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         resposta6.setForeground(new java.awt.Color(51, 51, 51));
         resposta6.setBorder(null);
         kGradientPanel2.add(resposta6);
-        resposta6.setBounds(110, 420, 518, 21);
+        resposta6.setBounds(140, 420, 518, 21);
 
         resposta4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         resposta4.setForeground(new java.awt.Color(51, 51, 51));
         resposta4.setBorder(null);
         kGradientPanel2.add(resposta4);
-        resposta4.setBounds(108, 216, 518, 21);
+        resposta4.setBounds(140, 220, 518, 21);
 
         resposta5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         resposta5.setForeground(new java.awt.Color(51, 51, 51));
         resposta5.setBorder(null);
         kGradientPanel2.add(resposta5);
-        resposta5.setBounds(108, 320, 518, 21);
+        resposta5.setBounds(140, 320, 518, 21);
 
+        jButton6.setBackground(new java.awt.Color(102, 102, 102));
+        jButton6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Proximo");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -405,8 +420,11 @@ public class Questionario1 extends javax.swing.JInternalFrame {
             }
         });
         kGradientPanel2.add(jButton6);
-        jButton6.setBounds(570, 500, 75, 22);
+        jButton6.setBounds(538, 500, 120, 27);
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,7 +432,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
             }
         });
         kGradientPanel2.add(jButton2);
-        jButton2.setBounds(480, 500, 72, 22);
+        jButton2.setBounds(400, 500, 100, 27);
 
         javax.swing.GroupLayout painel2Layout = new javax.swing.GroupLayout(painel2);
         painel2.setLayout(painel2Layout);
@@ -430,85 +448,111 @@ public class Questionario1 extends javax.swing.JInternalFrame {
             .addGroup(painel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         slide.add(painel2, "card3");
 
+        painel3.setBackground(new java.awt.Color(205, 205, 205));
+        painel3.setLayout(null);
+
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
+        jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+        painel3.add(jButton4);
+        jButton4.setBounds(18, 465, 94, 27);
 
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
+        jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Cadastrar Questionário");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
+        painel3.add(jButton5);
+        jButton5.setBounds(265, 498, 206, 27);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("Question 8");
+        painel3.add(jLabel19);
+        jLabel19.setBounds(40, 100, 75, 17);
 
         pergunta7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         pergunta7.setForeground(new java.awt.Color(102, 102, 102));
         pergunta7.setBorder(null);
+        painel3.add(pergunta7);
+        pergunta7.setBounds(131, 98, 510, 22);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(102, 102, 102));
         jLabel20.setText("Answer:");
+        painel3.add(jLabel20);
+        jLabel20.setBounds(40, 140, 57, 17);
 
         resposta7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         resposta7.setForeground(new java.awt.Color(51, 51, 51));
         resposta7.setBorder(null);
+        painel3.add(resposta7);
+        resposta7.setBounds(119, 140, 520, 21);
 
-        javax.swing.GroupLayout painel3Layout = new javax.swing.GroupLayout(painel3);
-        painel3.setLayout(painel3Layout);
-        painel3Layout.setHorizontalGroup(
-            painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel3Layout.createSequentialGroup()
-                .addGroup(painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painel3Layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4))
-                    .addGroup(painel3Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(painel3Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(pergunta7, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(painel3Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(38, 38, 38)
-                                .addComponent(resposta7, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(73, Short.MAX_VALUE))
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Questions for the Interviewed");
+        painel3.add(jLabel3);
+        jLabel3.setBounds(40, 20, 325, 32);
+
+        jPanel6.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel6.setPreferredSize(new java.awt.Dimension(403, 3));
+
+        jPanel7.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel7.setPreferredSize(new java.awt.Dimension(403, 3));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 403, Short.MAX_VALUE)
         );
-        painel3Layout.setVerticalGroup(
-            painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painel3Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel19))
-                    .addComponent(pergunta7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(painel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addComponent(resposta7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addGap(39, 39, 39))
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+        );
+
+        painel3.add(jPanel6);
+        jPanel6.setBounds(40, 60, 403, 3);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quest.jpg"))); // NOI18N
+        painel3.add(jLabel4);
+        jLabel4.setBounds(40, 190, 597, 245);
 
         slide.add(painel3, "card4");
 
@@ -552,18 +596,31 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         
         System.out.println("o id da candidato é: " + id);
         System.out.println("o id da entrevistador é: " + idEntrevistado);
+                
+        perguntas.get(0).setResposta(resposta1.getText());
+        perguntas.get(1).setResposta(resposta2.getText());
+        perguntas.get(2).setResposta(resposta3.getText());
+        perguntas.get(3).setResposta(resposta4.getText());
+        perguntas.get(4).setResposta(resposta5.getText());
+        perguntas.get(5).setResposta(resposta6.getText());
+        perguntas.get(6).setResposta(resposta7.getText());
+        
+        //PerguntaQuestionarioDAO dao = new PerguntaQuestionarioDAO();
         
         
-        java.util.List<PerguntaQuestionario> perguntasQ = new ArrayList<PerguntaQuestionario>();
+        
+        //dao.cadastrarResposta(perguntas, id);
+        PerguntaQuestionarioBO bo = new PerguntaQuestionarioBO();
         
         
-        perguntasQ.get(0).setResposta(resposta1.getText());
-        perguntasQ.get(1).setResposta(resposta2.getText());
-        perguntasQ.get(2).setResposta(resposta3.getText());
-        perguntasQ.get(3).setResposta(resposta4.getText());
-        perguntasQ.get(4).setResposta(resposta5.getText());
-        perguntasQ.get(5).setResposta(resposta6.getText());
-        perguntasQ.get(6).setResposta(resposta7.getText());
+        try {
+            bo.cadastrarResposta(perguntas, id);
+            JOptionPane.showMessageDialog(null, "Questionario Cadastrado com Sucesso");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Houve um erro no momento de cadastrar o questionario");
+        }
+        
 
         
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -605,11 +662,15 @@ public class Questionario1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;

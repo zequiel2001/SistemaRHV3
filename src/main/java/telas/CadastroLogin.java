@@ -201,7 +201,7 @@ public class CadastroLogin extends javax.swing.JFrame {
         
                 try {
             bo.cadastrar(entrevistador);
-            JOptionPane.showMessageDialog(null, "Entrevistador cadastrado com sucesso ");
+            //JOptionPane.showMessageDialog(null, "Entrevistador cadastrado com sucesso ");
             Login login = new Login();
             login.setVisible(true);
             this.dispose();

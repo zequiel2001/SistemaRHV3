@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelos.Cadidato;
+import modelos.Entrevistador;
 /**
  *
  * @author Ezeks
@@ -77,10 +78,6 @@ public class CandidatoDAO {
    }
     
     
-    
-    
-    
-    int idCand;
     public void cadastrar(Cadidato candidato){
         //cria variavel de conexao
         Connection con = Conexao.getConexao();
@@ -114,11 +111,6 @@ public class CandidatoDAO {
             
             //Executa a instrução SQL no objeto
             stmt.executeUpdate();
-            
-            stmt = con.prepareStatement("select max(id) from candidatos");
-            rs = stmt.executeQuery();
-  
-            
             
         //caso ocorra um erro    
         } catch (SQLException ex) {
@@ -203,6 +195,25 @@ public class CandidatoDAO {
         }
 
     }
+    
+    
+        public boolean validaCadastroCandidato(Cadidato candidato) {
+         Connection con = Conexao.getConexao();
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+         try {
+             stmt = con.prepareStatement("select nome, cpf from candidatos where cpf = ?");
+             stmt.setString(1, candidato.getCpf());           
+             rs = stmt.executeQuery();
+             return rs.next();       
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        //return rs.next();
+        return true;
+    }   
         
         
         

@@ -106,4 +106,24 @@ public class EntrevistadorDAO {
         
         
     }
+        
+        
+    public boolean validarLogin(Entrevistador entrevistado) {
+         Connection con = Conexao.getConexao();
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+         try {
+             stmt = con.prepareStatement("select usuario, senha from entrevistador where usuario = ? and senha = ?");
+             stmt.setString(1, entrevistado.getUsuario());
+             stmt.setString(2, entrevistado.getSenha());
+             rs = stmt.executeQuery();
+             return rs.next();       
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        //return rs.next();
+        return true;
+    }     
 }

@@ -4,6 +4,7 @@
  */
 package modelos;
 import dao.EntrevistadorDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +17,15 @@ public class EntrevistadorBO {
          EntrevistadorDAO dao = new EntrevistadorDAO();
          
          try {
-             dao.cadastrarUsuario(entrevistado);
+             //o valida cpf seria aqui, em um if, e o verifca repetição de cpf seria dentro de um outro if caso retorne true
+             
+             if(dao.validarLogin(entrevistado) == false){
+                 dao.cadastrarUsuario(entrevistado);
+                 JOptionPane.showMessageDialog(null, "Entrevistador foi cadastrado");
+             }else{
+                  JOptionPane.showMessageDialog(null, "Entrevistador já existe no banco! Tente fazer o Login Novamente!");
+             }
+   
          } catch (Exception e) {
              throw new RuntimeException("Erro ao inserir informação no banco de dados");
          }

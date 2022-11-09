@@ -60,6 +60,24 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         
     }
     
+    public void LimpaCampo(){
+        this.nome.setText("");
+        this.cpf.setText("");
+        this.email.setText("");
+        this.nascimento.setText("");
+        this.telefone.setText("");
+        this.genero.setText("");
+        this.formacao.setText("");
+        this.endereco.setText("");
+        this.numero.setText("");
+        this.cep.setText("");
+        this.uf.setText("");
+        this.curso.setText("");
+        this.experiencia.setText("");
+    
+    
+    }
+    
     
     public void preencherTabela(){
         
@@ -119,6 +137,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         cep = new javax.swing.JTextField();
         formacao = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -323,13 +342,27 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
+        jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Limpa Campos");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4))
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel10)
@@ -368,7 +401,6 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                                 .addComponent(experiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(32, 32, 32)
                         .addComponent(jLabel3))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -464,15 +496,17 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jLabel3)))
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton4))
+                .addGap(16, 16, 16)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -584,14 +618,31 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         
         CandidatoBO bo = new CandidatoBO();
         
-        try {
+        
+        
+        
+        int options = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Deseja Realmente Cadastrar o Candidato?" ,"IMPORTANT", options, 3);
+        if (result == JOptionPane.YES_OPTION) {
+            try {
+                bo.cadastrar(candidato);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Houve um erro na hora de cadastrar um candidato");
+            }
+            preencherTabela();
+            
+        } else if (result == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, "OK");
+        }
+        
+        /*try {
             bo.cadastrar(candidato);
-            JOptionPane.showMessageDialog(null, "candidato foi cadastrado");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Houve um erro na hora de cadastrar um candidato");
         }
-        preencherTabela();
+        preencherTabela();*/
         
         
        
@@ -641,6 +692,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         
         CandidatoBO bo = new CandidatoBO();
         
+        
         try {
             bo.atualizar(candidato);
             JOptionPane.showMessageDialog(null, "Candidato atualizado com sucesso");
@@ -689,6 +741,11 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formacaoActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.LimpaCampo();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cep;
@@ -702,6 +759,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

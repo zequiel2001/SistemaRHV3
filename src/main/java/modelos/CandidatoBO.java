@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelos;
 
 import java.util.List;
@@ -38,37 +35,20 @@ public class CandidatoBO {
         CandidatoDAO dao = new CandidatoDAO();
 
         try {
-            //dao.cadastrar(candidato);
 
-            /*if(this.verificaCampoVazio(candidato) == false){
-                if (validaCpf(candidato)) {
-                    if(dao.validaCadastroCandidato(candidato) == false){
-                        dao.cadastrar(candidato);
-                        JOptionPane.showMessageDialog(null, "candidato foi cadastrado");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "O Candidato que deseja cadastrar já existe no Sistema");
-                    }     
-            }else{
-                JOptionPane.showMessageDialog(null, "O cpf do candidato é Invalido!");
-            }
-            
-            }else{
-                JOptionPane.showMessageDialog(null, "Alguns dos campos estão vazio! Tente Novamente");
-            
-            }*/
             if (validaCpf(candidato)) {
                 if (dao.validaCadastroCandidato(candidato) == false) {
                     dao.cadastrar(candidato);
-                    JOptionPane.showMessageDialog(null, "candidato foi cadastrado");
+                    JOptionPane.showMessageDialog(null, "candidate has been registered");
                 } else {
-                    JOptionPane.showMessageDialog(null, "O Candidato que deseja cadastrar já existe no Sistema");
+                    JOptionPane.showMessageDialog(null, "The Candidate you wish to register already exists in the System");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "O cpf do candidato é Invalido!");
+                JOptionPane.showMessageDialog(null, "The candidate's CPF is Invalid!");
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao inserir informação no banco de dados");
+            throw new RuntimeException("Error inserting information into the database");
         }
 
     }

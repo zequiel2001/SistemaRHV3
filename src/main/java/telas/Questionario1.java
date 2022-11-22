@@ -595,7 +595,9 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         
         //quando ele apertar em cadastrar questionario
         
+        
         int linha = this.tabelacandidatos.getSelectedRow();
+
         int id = (int) tabelacandidatos.getModel().getValueAt(linha, 0);
         int idEntrevistado = (int) tabelacandidatos.getModel().getValueAt(linha, 3);
         
@@ -620,10 +622,10 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         
         try {
             bo.cadastrarResposta(perguntas, id);
-            JOptionPane.showMessageDialog(null, "Questionario Cadastrado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Questionnaire Registered Successfully");
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Houve um erro no momento de cadastrar o questionario");
+            JOptionPane.showMessageDialog(null, "There was an error when registering the questionnaire");
         }
         
 

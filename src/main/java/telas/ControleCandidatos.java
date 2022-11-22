@@ -30,34 +30,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         DefaultTableModel modeltable = (DefaultTableModel) tabelacandidatos.getModel();
         tabelacandidatos.setRowSorter(new TableRowSorter(modeltable));
         preencherTabela();
-        
-        //ESTILIZAÇÃO DOS BOTÕES
-        
-        /*jButton4.setFont(new Font("Ravie", 1, 18));
-        jButton4.setForeground(new Color(105,105,105));
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(100,149,237), 3));
-        
-        jButton4.setRequestFocusEnabled(false);
-       jButton4.setRolloverEnabled(false);
-       jButton4.setMargin(new Insets(2, 1000, 2, 14));
-       
-       jButton5.setFont(new Font("Ravie", 1, 18));
-        jButton5.setForeground(new Color(105,105,105));
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(100,149,237), 3));
-        
-        jButton5.setRequestFocusEnabled(false);
-       jButton5.setRolloverEnabled(false);
-       jButton5.setMargin(new Insets(2, 1000, 2, 14));
-       
-       jButton6.setFont(new Font("Ravie", 1, 18));
-        jButton6.setForeground(new Color(105,105,105));
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(100,149,237), 3));
-        
-        jButton6.setRequestFocusEnabled(false);
-       jButton6.setRolloverEnabled(false);
-       jButton6.setMargin(new Insets(2, 1000, 2, 14));
-        */
-        
+  
     }
     
     public void LimpaCampo(){
@@ -87,7 +60,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
          
          for (Cadidato candidato: candidatobo.consulta()){
              modeltable.addRow(new Object[]{
-             candidato.getIdCandidato() ,candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getNumero(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
+             candidato.getIdCandidato() ,candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
              });
          }
              
@@ -131,7 +104,6 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         nascimento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        cpf = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -155,9 +127,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         curso = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnPesquisa = new javax.swing.JButton();
+        cpf = new javax.swing.JFormattedTextField();
 
         setClosable(true);
-        setMaximizable(true);
         setTitle("Candidate Control");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/interface3.png"))); // NOI18N
 
@@ -224,22 +196,26 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Search Candidates");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Name:");
 
         nome.setBackground(new java.awt.Color(240, 239, 253));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Phone:");
 
         telefone.setBackground(new java.awt.Color(240, 239, 253));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Email:");
 
         email.setBackground(new java.awt.Color(240, 239, 253));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Address:");
 
         endereco.setBackground(new java.awt.Color(240, 239, 253));
@@ -249,34 +225,38 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Birth date:");
 
         nascimento.setBackground(new java.awt.Color(240, 239, 253));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Genre:");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("CPF:");
-
-        cpf.setBackground(new java.awt.Color(240, 239, 253));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Additional Information");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
         jLabel12.setText("Courses:");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Experiences:");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Personal informations");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Zip Code:");
 
         genero.setBackground(new java.awt.Color(240, 239, 253));
@@ -286,7 +266,8 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Number:");
 
         numero.setBackground(new java.awt.Color(240, 239, 253));
@@ -296,7 +277,8 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(51, 51, 51));
         jLabel17.setText("UF:");
 
         uf.setBackground(new java.awt.Color(240, 239, 253));
@@ -308,7 +290,8 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo123.png"))); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setText("Academic formation:");
 
         experiencia.setBackground(new java.awt.Color(240, 239, 253));
@@ -385,6 +368,13 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             }
         });
 
+        cpf.setBackground(new java.awt.Color(240, 239, 253));
+        try {
+            cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -398,17 +388,10 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                         .addComponent(btnPesquisa))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton4))
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel10)
-                            .addGap(18, 18, 18)
-                            .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(31, 31, 31)
-                            .addComponent(jLabel7)
-                            .addGap(6, 6, 6)
-                            .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel8)
                             .addGap(18, 18, 18)
@@ -439,8 +422,19 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(32, 32, 32)
                             .addComponent(jLabel3))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cpf))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -450,32 +444,25 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                                     .addGap(10, 10, 10)
                                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(31, 31, 31)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(11, 11, 11)
-                                    .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel18)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(formacao, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(11, 11, 11)
+                                        .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(genero, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(formacao, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(6, 6, 6)
+                                    .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(64, 64, 64))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(32, 32, 32)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(590, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -502,14 +489,15 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4))))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel10)
+                                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel7))))
-                .addGap(29, 29, 29)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -541,12 +529,14 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                             .addComponent(experiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jLabel6))
                 .addGap(16, 16, 16)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -554,12 +544,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(374, Short.MAX_VALUE)
-                    .addComponent(jLabel6)
-                    .addGap(240, 240, 240)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -601,7 +586,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         this.numero.setText(numero2);
         this.cep.setText(cep1);
         this.uf.setText(uf1);
-        this.pesquisa.setText(curso1);
+        this.curso.setText(curso1);
         this.experiencia.setText(exp);
         
         System.out.println("o id da candidato é: " + id);
@@ -628,6 +613,63 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         //botao de cadastrar
+        if(nome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The name field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(email.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The email field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(cpf.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The cpf field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(nascimento.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The birth field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }  
+        if(genero.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The genre field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(formacao.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The formation field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(telefone.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The phone field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(endereco.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The Address field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(numero.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The number field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(cep.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The Zip code field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(uf.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The state field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(curso.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The course field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(experiencia.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "The experience field is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        
+        
+        
+        
+        
         String nome1 = this.nome.getText();
         String email1 = this.email.getText();
         String cpf1 = this.cpf.getText();
@@ -639,17 +681,13 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         String numero1 = this.numero.getText();
         String cep1 = this.cep.getText();
         String uf1 = this.uf.getText();
-        String curso1 = this.pesquisa.getText();
+        String curso1 = this.curso.getText();
         String exp1 = this.experiencia.getText();
         
         EntrevistadorDAO dao = new EntrevistadorDAO();
         
         Entrevistador a = new Entrevistador();
-        
-        
-        //System.out.println("o id do entrevistador no arquivo controle candidato e´: " + a.getNome());
         int idEntrevistador1 = dao.getID();
-        //int idEntrevistador1 = 1;
         
         Cadidato candidato = new Cadidato();
         
@@ -681,7 +719,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                 bo.cadastrar(candidato);
             } catch (Exception e) {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Houve um erro na hora de cadastrar um candidato");
+                JOptionPane.showMessageDialog(null, "There was an error when registering a candidate");
             }
             preencherTabela();
             
@@ -812,7 +850,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JTextField cep;
-    private javax.swing.JTextField cpf;
+    private javax.swing.JFormattedTextField cpf;
     private javax.swing.JTextField curso;
     private javax.swing.JTextField email;
     private javax.swing.JTextField endereco;

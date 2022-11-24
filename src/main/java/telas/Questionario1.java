@@ -543,7 +543,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         painel3.add(jPanel6);
         jPanel6.setBounds(40, 60, 403, 3);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quest.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/relatorio.jpg"))); // NOI18N
         painel3.add(jLabel4);
         jLabel4.setBounds(40, 190, 597, 210);
 
@@ -569,7 +569,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(slide, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+            .addComponent(slide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -594,7 +594,34 @@ public class Questionario1 extends javax.swing.JInternalFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         
         //quando ele apertar em cadastrar questionario
-        
+        if(resposta1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Field answer 1 is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(resposta2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Field answer 2 is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(resposta3.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Field answer 3 is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        if(resposta4.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Field answer 4 is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(resposta5.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Field answer 5 is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(resposta6.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Field answer 6 is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }  
+        if(resposta7.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Field answer 7 is required", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }  
         
         int linha = this.tabelacandidatos.getSelectedRow();
 

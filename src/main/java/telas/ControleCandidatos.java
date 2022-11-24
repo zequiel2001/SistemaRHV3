@@ -527,9 +527,9 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel13)
                                     .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(experiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisa))
@@ -538,13 +538,13 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
                     .addComponent(jButton4)
                     .addComponent(jLabel6))
                 .addGap(16, 16, 16)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -588,8 +588,6 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         this.uf.setText(uf1);
         this.curso.setText(curso1);
         this.experiencia.setText(exp);
-        
-        System.out.println("o id da candidato é: " + id);
             
     }//GEN-LAST:event_tabelacandidatosMouseClicked
 
@@ -713,7 +711,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         
         
         int options = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Deseja Realmente Cadastrar o Candidato?" ,"IMPORTANT", options, 3);
+        int result = JOptionPane.showConfirmDialog(null, "Do you really want to register the candidate?" ,"IMPORTANT", options, 3);
         if (result == JOptionPane.YES_OPTION) {
             try {
                 bo.cadastrar(candidato);
@@ -727,17 +725,6 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "OK");
         }
         
-        /*try {
-            bo.cadastrar(candidato);
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Houve um erro na hora de cadastrar um candidato");
-        }
-        preencherTabela();*/
-        
-        
-       
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -747,8 +734,6 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         int linha = this.tabelacandidatos.getSelectedRow();
         int coluna = 0;
         int Id = Integer.parseInt(tabelacandidatos.getModel().getValueAt(linha, coluna).toString());
-        
-        System.out.println("o valor do id  na classe controle é: " + Id);
         
         String nome3 = this.nome.getText();
         String email3 = this.email.getText();
@@ -786,10 +771,10 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         
         try {
             bo.atualizar(candidato);
-            JOptionPane.showMessageDialog(null, "Candidato atualizado com sucesso");
+            JOptionPane.showMessageDialog(null, "Successfully Updated Candidate");
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "erro ao atualizar o candidato");
+            JOptionPane.showMessageDialog(null, "error updating candidate");
             
         }
         preencherTabela();
@@ -813,11 +798,11 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         
         try {
             bo.deletar(candidato);
-            JOptionPane.showMessageDialog(null, "Candidato excluída com sucesso");
+            JOptionPane.showMessageDialog(null, "Successfully deleted candidate");
             
         } catch (Exception e) {
              e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro ao excluir a o candidato");
+            JOptionPane.showMessageDialog(null, "Error deleting candidate");
         }
         preencherTabela();
         

@@ -44,7 +44,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RH TECH");
-        setPreferredSize(new java.awt.Dimension(1366, 760));
+        setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu1.jpg"))); // NOI18N
 

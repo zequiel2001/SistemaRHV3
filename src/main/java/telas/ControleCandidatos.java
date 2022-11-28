@@ -45,7 +45,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
         this.numero.setText("");
         this.cep.setText("");
         this.uf.setText("");
-        this.pesquisa.setText("");
+        this.curso.setText("");
         this.experiencia.setText("");
     
     
@@ -60,7 +60,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
          
          for (Cadidato candidato: candidatobo.consulta()){
              modeltable.addRow(new Object[]{
-             candidato.getIdCandidato() ,candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
+             candidato.getIdCandidato() ,candidato.getNome(), candidato.getEmail(), candidato.getCpf(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
              });
          }
              
@@ -74,7 +74,7 @@ public class ControleCandidatos extends javax.swing.JInternalFrame {
          
          for (Cadidato candidato: candidatobo.pesquisaCandidato(nomePesq)){
              modeltable.addRow(new Object[]{
-             candidato.getIdCandidato() ,candidato.getNome(), candidato.getCpf(), candidato.getEmail(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getNumero(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
+             candidato.getIdCandidato() ,candidato.getNome(), candidato.getEmail(), candidato.getCpf(), candidato.getNiversario(), candidato.getTelefone(), candidato.getGenero(),candidato.getFormacao(), candidato.getEndereco(), candidato.getNumero(), candidato.getCep(), candidato.getNumero(), candidato.getUf(), candidato.getCursos(), candidato.getEsperiecia()
              });
          }
              

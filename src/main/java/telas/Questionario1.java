@@ -452,19 +452,19 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         jButton4.setBackground(new java.awt.Color(102, 102, 102));
         jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Voltar");
+        jButton4.setText("Back");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         painel3.add(jButton4);
-        jButton4.setBounds(20, 430, 94, 27);
+        jButton4.setBounds(20, 430, 120, 27);
 
         jButton5.setBackground(new java.awt.Color(102, 102, 102));
         jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Cadastrar Relatorio");
+        jButton5.setText("Register Report");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -550,7 +550,7 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         jButton7.setBackground(new java.awt.Color(102, 102, 102));
         jButton7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 15)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Gerar Relatorio");
+        jButton7.setText("Generate Report");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -680,10 +680,10 @@ public class Questionario1 extends javax.swing.JInternalFrame {
         
         try {
             RelatorioBO bo = new RelatorioBO();
-            JOptionPane.showMessageDialog(null, "Aguarde alguns segundos, seu relatorio está sendo gerado");
+            JOptionPane.showMessageDialog(null, "Wait a few seconds, your report is being generated");
             bo.geraRelatorio();
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Parece que houve um erro na geração do relatorio!" + e);
+             JOptionPane.showMessageDialog(null, "It looks like there was an error in generating the report!" + e);
             
         }
         

@@ -10,7 +10,7 @@ public class RelatorioBO {
         try {
             dao.geraRelatorio();
         } catch (Exception e) {
-            throw new RuntimeException("Ops parece que ocorreu ao chamar o método que gera o relatório!" + e);
+            throw new RuntimeException("Oops looks like it occurred when calling the method that generates the report!" + e);
         }
     
     }

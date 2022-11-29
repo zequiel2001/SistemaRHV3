@@ -208,7 +208,7 @@ public class CadastroLogin extends javax.swing.JFrame {
             
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Houve um erro na hora de cadastrar o entrevistador");
+            JOptionPane.showMessageDialog(null, "There was an error when registering the interviewer");
         }
         
         

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package telas;
+
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import modelos.Entrevistador;
@@ -21,32 +22,31 @@ public class CadastroLogin extends javax.swing.JFrame {
         initComponents();
         //Centralizando o jFrame no meio da tela do computador
         this.setLocationRelativeTo(null);
-        cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+        cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105, 105, 105), 3, true));
         cpf.setBorder(BorderFactory.createCompoundBorder(
-        cpf.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        
-        senha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+                cpf.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+
+        senha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105, 105, 105), 3, true));
         senha.setBorder(BorderFactory.createCompoundBorder(
-        senha.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));  
-        
-        nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+                senha.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+
+        nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105, 105, 105), 3, true));
         nome.setBorder(BorderFactory.createCompoundBorder(
-        nome.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        
-        user.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+                nome.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+
+        user.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105, 105, 105), 3, true));
         user.setBorder(BorderFactory.createCompoundBorder(
-        user.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        
-        cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105,105,105), 3, true));
+                user.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+
+        cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(105, 105, 105), 3, true));
         cpf.setBorder(BorderFactory.createCompoundBorder(
-        cpf.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5))); 
+                cpf.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -184,34 +184,33 @@ public class CadastroLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cpfActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         String nome1 = this.nome.getText();
         String cpf1 = this.cpf.getText();
         String usuario1 = this.user.getText();
         String senha1 = this.senha.getText();
-        
+
         Entrevistador entrevistador = new Entrevistador();
-        
+
         entrevistador.setNome(nome1);
         entrevistador.setCpf(cpf1);
         entrevistador.setUsuario(usuario1);
         entrevistador.setSenha(senha1);
-        
+
         EntrevistadorBO bo = new EntrevistadorBO();
-        
-                try {
+
+        try {
             bo.cadastrar(entrevistador);
             //JOptionPane.showMessageDialog(null, "Entrevistador cadastrado com sucesso ");
             Login login = new Login();
             login.setVisible(true);
             this.dispose();
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "There was an error when registering the interviewer");
         }
-        
-        
+
         /*if(cpf.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Username field is required", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
@@ -220,16 +219,13 @@ public class CadastroLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password field is required", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }*/
-        
-        
-        
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        
+
         int options = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Do you really want to go out?" ,"IMPORTANT", options, 3);
+        int result = JOptionPane.showConfirmDialog(null, "Do you really want to go out?", "IMPORTANT", options, 3);
         if (result == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else if (result == JOptionPane.NO_OPTION) {
@@ -243,11 +239,10 @@ public class CadastroLogin extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        
+
         //sair
-        
-                int options = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Do you really want to go out" ,"IMPORTANT", options, 3);
+        int options = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Do you really want to go out", "IMPORTANT", options, 3);
         if (result == JOptionPane.YES_OPTION) {
             System.exit(0);
         } else if (result == JOptionPane.NO_OPTION) {

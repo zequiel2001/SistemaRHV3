@@ -1,4 +1,4 @@
-# SistemaRHV3
+# Sistema RH TECH
 
 
 ![Logo of the project](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/logo123.png)
@@ -14,7 +14,8 @@ of the person is consistent with the mission of the company.
 
 Here are the technologies used in this project.
 
-* java version 11.0.16
+* Java version 11.0.16
+* iReport version 5.6.0
 
 
 ## Services Used
@@ -51,16 +52,15 @@ Here are the technologies used in this project.
 ## Features
 
 The main features of the application are:
- - Publish Posts.
- - Learn a lot of information <3
+ - Register, update and delete complete resumes of candidates to be selected for an interview
+   based on the completed questionnaire, where the system itself generates the questionnaire.
+- Generates pdf reports for recruiters to carry out the analysis. 
 
 
-## Links
-  - Deploy on Heroku: https://lucas-dev.com/
-  - Repository: https://github.com/Lucasdfg07/Blog_Lucas_Fernandes
-    - In case of sensitive bugs like security vulnerabilities, please contact
-      Lucassiqueiraferandes07@gmail.com directly instead of using issue tracker. We value your effort
-      to improve the security and privacy of this project!
+## Motivation
+The project was created with the aim of completing a technical course in Informatics integrated with high school,
+software created in the last period in order to integrate all the knowledge acquired in all disciplines related to the project.
+  
 
   ## Versioning
 

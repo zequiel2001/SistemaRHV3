@@ -1,7 +1,7 @@
 # SistemaRHV3
 
 
-![Logo of the project](https://github.com/zequiel2001/SistemaRHV3/tree/master/README/logo123.png)
+![Logo of the project](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/logo123.png)
 
 
 ## CV registration system for HR

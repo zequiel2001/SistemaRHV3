@@ -1,4 +1,4 @@
-# Sistema RH TECH
+# HR TECH System
 
 
 ![Logo of the project](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/logo123.png)

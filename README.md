@@ -25,27 +25,27 @@ Here are the technologies used in this project.
 
 ### 1 - Login screen
 
-![Login image](https://github.com/zequiel2001/SistemaRHV3/tree/master/README/LOGIN.png)
+![Login image](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/LOGIN.png)
 
 ### 2 - Login registration screen
 
-![login registration image](https://github.com/zequiel2001/SistemaRHV3/tree/master/README/cadastrologin.png)
+![login registration image](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/cadastrologin.png)
 
 ### 3 - Menu Screen
 
-![Home image](https://github.com/zequiel2001/SistemaRHV3/tree/master/README/menu.png)
+![Home image](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/menu.png)
 
 ### 4 - Candidate registration control screen
 
-![control candidates image](https://github.com/zequiel2001/SistemaRHV3/tree/master/README/cadastroCandidato.png)
+![control candidates image](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/cadastroCandidato.png)
 
 ### 5 - Question control screen
 
-![control questions image](https://github.com/zequiel2001/SistemaRHV3/tree/master/README/controlePerguntas.png)
+![control questions image](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/controlePerguntas.png)
 
 ### 6 - Questionnaire screen for the candidate to answer
 
-![Questionnaire image](https://github.com/zequiel2001/SistemaRHV3/tree/master/README/questionario.png)
+![Questionnaire image](https://github.com/zequiel2001/SistemaRHV3/blob/master/README/questionario.png)
 
 
 ## Features
